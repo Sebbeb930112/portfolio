@@ -123,7 +123,7 @@ export default function Hero({ onScrollToProjects, onScrollToContact }: HeroProp
               whileHover={{ scale: 1.02, rotate: 1 }}
             >
               <img
-                src="/sebastian.jpg"
+                src="/sebastian.png"
                 alt="Sebastian Blomqvist"
                 className="w-full h-full object-cover"
               />
