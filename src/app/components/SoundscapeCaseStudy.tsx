@@ -40,6 +40,16 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
           </p>
         </motion.div>
 
+        {/* Hero-bild */}
+        <motion.div
+          className="mt-10 rounded-2xl overflow-hidden shadow-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <img src="/soundscape-hero.jpg" alt="Soundscape Sleep" className="w-full h-auto" />
+        </motion.div>
+
         {/* Project info cards */}
         <motion.div
           className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12"
@@ -290,30 +300,84 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
 
         {/* Slutprodukt – Morgonkompis */}
         <motion.section
-          className="rounded-2xl p-8 lg:p-12 text-white"
-          style={{ background: 'linear-gradient(135deg, #111827 0%, #1f2937 100%)' }}
+          className="rounded-2xl p-8 lg:p-16 text-white"
+          style={{ background: 'linear-gradient(135deg, #1e1035 0%, #2d1b69 50%, #1e1035 100%)' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-8">Slutprodukt – Morgonkompis</h2>
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="bg-white/10 rounded-xl p-8 flex items-center justify-center min-h-[250px]">
-              <p className="text-white/50 text-sm">Morgonkompis-skärm – bildplatshållare</p>
-            </div>
-            <div className="space-y-3">
-              {[
-                'Personlig AI-hälsning: "God morgon Alex!"',
-                'Schemaintegration: dagens agenda',
-                'Inspirerande citat',
-                'Röstinteraktion: snabbförslag',
-                'Premium design: radiella cirklar, clean UI',
-              ].map((f) => (
-                <div key={f} className="flex items-start gap-3">
-                  <span className="font-bold flex-shrink-0" style={{ color: '#a78bfa' }}>✓</span>
-                  <span className="text-gray-300 text-sm">{f}</span>
+          <h2 className="text-3xl font-bold mb-2">Slutprodukt – Morgonkompis</h2>
+          <p className="text-purple-300 mb-12 text-sm">Det personliga AI-morgonmeddelandet som startar dagen rätt.</p>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* iPhone mockup */}
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+              whileHover={{ y: -8, rotate: 1 }}
+            >
+              <div
+                className="relative"
+                style={{
+                  width: '260px',
+                  background: '#0a0a0a',
+                  borderRadius: '44px',
+                  padding: '12px',
+                  boxShadow: '0 0 0 1px rgba(255,255,255,0.1), 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05)',
+                }}
+              >
+                {/* Knappar vänster */}
+                <div className="absolute left-[-3px] top-[100px] w-[3px] h-8 bg-gray-700 rounded-l-sm" />
+                <div className="absolute left-[-3px] top-[148px] w-[3px] h-10 bg-gray-700 rounded-l-sm" />
+                <div className="absolute left-[-3px] top-[200px] w-[3px] h-10 bg-gray-700 rounded-l-sm" />
+                {/* Knapp höger */}
+                <div className="absolute right-[-3px] top-[140px] w-[3px] h-14 bg-gray-700 rounded-r-sm" />
+
+                {/* Skärm */}
+                <div style={{ borderRadius: '34px', overflow: 'hidden', background: '#000' }}>
+                  {/* Dynamic Island */}
+                  <div className="flex justify-center pt-3 pb-1 bg-black">
+                    <div style={{ width: '90px', height: '28px', background: '#000', borderRadius: '20px', border: '1px solid #222' }} />
+                  </div>
+                  {/* App-skärm */}
+                  <img
+                    src="/soundscape-morgonkompis.jpg"
+                    alt="Morgonkompis skärm"
+                    className="w-full"
+                    style={{ display: 'block' }}
+                  />
+                  {/* Home indicator */}
+                  <div className="flex justify-center py-2 bg-[#0d0d0d]">
+                    <div style={{ width: '120px', height: '4px', background: '#444', borderRadius: '4px' }} />
+                  </div>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Features */}
+            <div className="space-y-4">
+              {[
+                { icon: '✦', text: 'Personlig AI-hälsning: "God morgon Alex!"' },
+                { icon: '✦', text: 'Schemaintegration: dagens agenda direkt i appen' },
+                { icon: '✦', text: 'Inspirerande dagscitat' },
+                { icon: '✦', text: 'Röstinteraktion med snabbförslag' },
+                { icon: '✦', text: 'Premium dark mode design med clean UI' },
+              ].map((f, i) => (
+                <motion.div
+                  key={f.text}
+                  className="flex items-start gap-3"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                >
+                  <span className="text-purple-400 font-bold flex-shrink-0 mt-0.5">{f.icon}</span>
+                  <span className="text-gray-300 text-sm leading-relaxed">{f.text}</span>
+                </motion.div>
               ))}
             </div>
           </div>

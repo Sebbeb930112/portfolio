@@ -9,9 +9,11 @@ import BalanzaCaseStudy from './components/BalanzaCaseStudy'
 import SoundscapeCaseStudy from './components/SoundscapeCaseStudy'
 import SpelinsiktCaseStudy from './components/SpelinsiktCaseStudy'
 import LordOfTheRingsShowcase from './components/LordOfTheRingsShowcase'
+import ReflexaCaseStudy from './components/ReflexaCaseStudy'
+import CirclaCaseStudy from './components/CirclaCaseStudy'
 
 type CurrentView = 'home' | 'case-study'
-type ActiveCaseStudy = 'balanza' | 'soundscape' | 'spelinsikt' | 'lotr' | null
+type ActiveCaseStudy = 'balanza' | 'soundscape' | 'spelinsikt' | 'lotr' | 'reflexa' | 'circla' | null
 
 export default function App() {
   const [currentView, setCurrentView] = useState<CurrentView>('home')
@@ -58,8 +60,8 @@ export default function App() {
 
   const navLinks = [
     { id: 'home', label: 'Hem' },
-    { id: 'about', label: 'Om mig' },
     { id: 'projects', label: 'Projekt' },
+    { id: 'about', label: 'Om mig' },
     { id: 'contact', label: 'Kontakt' },
   ]
 
@@ -187,6 +189,8 @@ export default function App() {
             {activeCaseStudy === 'soundscape' && <SoundscapeCaseStudy onBack={closeCaseStudy} />}
             {activeCaseStudy === 'spelinsikt' && <SpelinsiktCaseStudy onBack={closeCaseStudy} />}
             {activeCaseStudy === 'lotr' && <LordOfTheRingsShowcase onBack={closeCaseStudy} onContact={() => { closeCaseStudy(); setTimeout(() => scrollTo('contact'), 400) }} />}
+            {activeCaseStudy === 'reflexa' && <ReflexaCaseStudy onBack={closeCaseStudy} />}
+            {activeCaseStudy === 'circla' && <CirclaCaseStudy onBack={closeCaseStudy} />}
           </motion.div>
         )}
       </AnimatePresence>

@@ -40,18 +40,12 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
 
         {/* Hero image */}
         <motion.div
-          className="mt-12 rounded-2xl overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #fff7ed 0%, #fce7f3 100%)' }}
+          className="mt-12 rounded-2xl overflow-hidden shadow-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="p-8 lg:p-12 flex items-center justify-center min-h-[300px]">
-            <div className="text-center">
-              <div className="text-8xl mb-4">💰</div>
-              <p className="text-gray-500 text-sm">App-mockup placeholder</p>
-            </div>
-          </div>
+          <img src="/balanza-hero.jpg" alt="Balanza" className="w-full h-auto" />
         </motion.div>
 
         {/* Project info */}
@@ -106,16 +100,6 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
             ))}
           </div>
 
-          {/* Javelin Board */}
-          <div className="bg-white rounded-xl p-8">
-            <h4 className="font-bold text-gray-900 text-lg mb-4">Javelin Board – Hypotesvalidering</h4>
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6 text-sm text-orange-800">
-              <strong>Vad är en Javelin Board?</strong> En Javelin Board är ett strukturerat verktyg för att formulera och prioritera hypoteser om användarbehov – och sedan testa dem snabbt och metodiskt.
-            </div>
-            <div className="bg-gray-100 rounded-xl flex items-center justify-center min-h-[200px]">
-              <p className="text-gray-400 text-sm">Javelin Board – bildplatshållare</p>
-            </div>
-          </div>
         </Section>
 
         {/* 03 Ideation */}
@@ -166,15 +150,28 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
             en sammanhängande upplevelse oavsett enhet.
           </p>
 
-          <div className="space-y-6 mb-8">
-            {['Desktop Dashboard', 'Mobile App', 'Apple Watch'].map((p) => (
-              <div key={p} className="bg-white rounded-xl p-6">
-                <p className="font-semibold text-gray-800 mb-3">{p}</p>
-                <div className="bg-gray-100 rounded-lg flex items-center justify-center h-48">
-                  <p className="text-gray-400 text-sm">{p} – bildplatshållare</p>
-                </div>
-              </div>
-            ))}
+          {/* Desktop */}
+          <div className="bg-white rounded-2xl p-6 mb-6">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Desktop Dashboard</p>
+            <motion.img
+              src="/balanza-desktop.jpg"
+              alt="Balanza Desktop"
+              className="w-full h-auto rounded-xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
+
+          {/* Mobile + Watch sida vid sida */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-white rounded-2xl p-6">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Mobile App</p>
+              <img src="/balanza-mobile.jpg" alt="Balanza Mobile" className="w-full h-auto rounded-xl" />
+            </div>
+            <div className="bg-white rounded-2xl p-6">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Apple Watch</p>
+              <img src="/balanza-watch.jpg" alt="Balanza Apple Watch" className="w-full h-auto rounded-xl" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
