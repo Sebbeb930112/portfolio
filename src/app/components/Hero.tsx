@@ -10,12 +10,10 @@ function AnimatedButton({
   children,
   onClick,
   variant,
-  href,
 }: {
   children: React.ReactNode
   onClick?: () => void
   variant: 'dark' | 'outline'
-  href?: string
 }) {
   const base =
     'relative overflow-hidden px-8 py-4 rounded-lg font-medium cursor-pointer flex items-center gap-2 text-base border-none'
