@@ -65,7 +65,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+              <h2 className="text-xl lg:text-2xl font-medium text-gray-500 mb-4 leading-tight">
                 Bortom designarbetet
               </h2>
               <p className="text-gray-600 leading-relaxed">
