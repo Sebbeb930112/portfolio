@@ -148,7 +148,7 @@ export default function Hero({ onScrollToProjects, onScrollToContact }: HeroProp
         className="absolute bottom-12 left-1/2 -translate-x-1/2 border border-gray-300 rounded-full p-3 bg-transparent cursor-pointer hover:border-gray-900 transition-colors"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        onClick={onScrollToProjects}
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
         whileHover={{ scale: 1.1 }}
       >
         <ArrowDown size={20} className="text-gray-600" />

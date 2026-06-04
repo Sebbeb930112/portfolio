@@ -165,8 +165,8 @@ export default function App() {
             transition={{ duration: 0.3 }}
           >
             <Hero onScrollToProjects={() => scrollTo('projects')} onScrollToContact={() => scrollTo('contact')} />
-            <About />
             <Projects onOpenCaseStudy={openCaseStudy} />
+            <About />
             <Contact />
             {/* FOOTER */}
             <footer className="bg-gray-50 border-t border-gray-100 py-12">
