@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, MapPin } from 'lucide-react'
 
 interface HeroProps {
   onScrollToProjects: () => void
@@ -16,7 +16,7 @@ function AnimatedButton({
   variant: 'dark' | 'outline'
 }) {
   const base =
-    'relative overflow-hidden px-8 py-4 rounded-lg font-medium cursor-pointer flex items-center gap-2 text-base border-none'
+    'relative overflow-hidden px-8 py-4 rounded-lg font-medium cursor-pointer flex items-center justify-center gap-2 text-base border-none w-full lg:w-auto'
 
   const content = (
     <motion.button
@@ -59,76 +59,87 @@ export default function Hero({ onScrollToProjects, onScrollToContact }: HeroProp
       className="relative min-h-screen flex items-center pt-20"
       style={{ backgroundColor: '#f5f1ea' }}
     >
-      <div className="max-w-7xl mx-auto w-full px-6 py-16">
-        <div className="grid lg:grid-cols-[45fr_55fr] gap-12 items-center">
-          {/* LEFT – Text */}
-          <div className="order-2 lg:order-1 flex flex-col gap-6">
-            <div>
-              <motion.h1
-                className="text-8xl lg:text-9xl text-gray-900 leading-none m-0"
-                style={{ fontFamily: "'Comforter', cursive" }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ scale: 1.05, x: 10 }}
-              >
-                Sebastian
-              </motion.h1>
-              <motion.h1
-                className="text-8xl lg:text-9xl text-gray-900 leading-none m-0"
-                style={{ fontFamily: "'Comforter', cursive" }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                whileHover={{ scale: 1.05, x: 10 }}
-              >
-                Blomqvist
-              </motion.h1>
-            </div>
+      {/* Portrait – desktop: absolut positionerad, full höjd */}
+      <motion.img
+        src="/sebastian.png"
+        alt="Sebastian Blomqvist"
+        className="hidden lg:block absolute bottom-0 right-0 lg:right-[5%] xl:right-[10%] pointer-events-none select-none"
+        style={{ height: '92%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom' }}
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      />
 
-            <motion.p
-              className="text-2xl lg:text-3xl text-gray-600 font-light"
+      <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
+        <div className="flex flex-col gap-5 justify-center min-h-[calc(100vh-80px)] max-w-xl text-center lg:text-left">
+
+          {/* Portrait – mobil: i flödet, ovanför texten */}
+          <motion.img
+            src="/sebastian.png"
+            alt="Sebastian Blomqvist"
+            className="lg:hidden w-full object-contain mx-auto"
+            style={{ maxHeight: '110vw', objectPosition: '50% 0%' }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          />
+          <div>
+            <motion.h1
+              className="text-8xl lg:text-9xl text-gray-900 leading-none m-0"
+              style={{ fontFamily: "'Comforter', cursive" }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ scale: 1.05, x: 5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ scale: 1.05, x: 10 }}
             >
-              User Experience Designer
-            </motion.p>
-
-            <motion.div
-              className="flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <AnimatedButton variant="dark" onClick={onScrollToProjects}>
-                Se mitt arbete
-                <ArrowUpRight size={18} />
-              </AnimatedButton>
-              <AnimatedButton variant="outline" onClick={onScrollToContact}>
-                Kontakta mig
-              </AnimatedButton>
-            </motion.div>
-          </div>
-
-          {/* RIGHT – Portrait */}
-          <div className="order-1 lg:order-2">
-            <motion.div
-              className="relative rounded-l-2xl overflow-hidden"
-              style={{ aspectRatio: '4/5' }}
-              initial={{ opacity: 0, x: 20 }}
+              Sebastian
+            </motion.h1>
+            <motion.h1
+              className="text-8xl lg:text-9xl text-gray-900 leading-none m-0"
+              style={{ fontFamily: "'Comforter', cursive" }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              whileHover={{ scale: 1.02, rotate: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ scale: 1.05, x: 10 }}
             >
-              <img
-                src="/sebastian.png"
-                alt="Sebastian Blomqvist"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+              Blomqvist
+            </motion.h1>
           </div>
+
+          <motion.p
+            className="text-2xl lg:text-3xl text-gray-700 font-semibold"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            whileHover={{ scale: 1.05, x: 5 }}
+          >
+            User Experience Designer
+          </motion.p>
+
+          <motion.div
+            className="flex items-center justify-center lg:justify-start gap-2 text-gray-500"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+          >
+            <MapPin size={16} className="text-gray-400" />
+            <span className="text-sm font-medium">Stockholm, Sverige</span>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col lg:flex-row gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <AnimatedButton variant="dark" onClick={onScrollToProjects}>
+              Se mitt arbete
+              <ArrowUpRight size={18} />
+            </AnimatedButton>
+            <AnimatedButton variant="outline" onClick={onScrollToContact}>
+              Kontakta mig
+            </AnimatedButton>
+          </motion.div>
         </div>
       </div>
 

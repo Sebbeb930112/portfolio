@@ -112,7 +112,7 @@ export default function About() {
           {/* Right image */}
           <motion.div
             className="rounded-2xl overflow-hidden shadow-xl"
-            style={{ aspectRatio: '4/3' }}
+            style={{ aspectRatio: '3/4' }}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -120,9 +120,9 @@ export default function About() {
             whileHover={{ scale: 1.03, rotate: -1 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3df4?w=800&q=80"
+              src="/Sebastianvin.jpg"
               alt="Matlagning och kreativitet"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </motion.div>
         </div>
