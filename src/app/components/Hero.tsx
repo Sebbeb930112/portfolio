@@ -127,13 +127,6 @@ export default function Hero({ onScrollToProjects, onScrollToContact }: HeroProp
                 alt="Sebastian Blomqvist"
                 className="w-full h-full object-cover"
               />
-              {/* Gradient overlay fading to background */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(to right, transparent 50%, transparent 70%, #f5f1ea 100%)',
-                }}
-              />
             </motion.div>
           </div>
         </div>
