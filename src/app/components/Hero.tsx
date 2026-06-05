@@ -17,7 +17,7 @@ function AnimatedButton({
   variant: 'dark' | 'outline'
 }) {
   const ref = useRef<HTMLButtonElement>(null)
-  const [hovered, setHovered] = useState(false)
+  const [_hovered, setHovered] = useState(false)
 
   // Magnetic pull
   const magX = useMotionValue(0)
@@ -78,22 +78,6 @@ function AnimatedButton({
       />
       <span className="relative z-10 flex items-center gap-2">{children}</span>
     </motion.button>
-  )
-}
-
-// Slide-up-from-mask text reveal
-function RevealText({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
-  return (
-    <div style={{ overflow: 'hidden' }}>
-      <motion.div
-        className={className}
-        initial={{ y: '110%' }}
-        animate={{ y: '0%' }}
-        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay }}
-      >
-        {children}
-      </motion.div>
-    </div>
   )
 }
 
