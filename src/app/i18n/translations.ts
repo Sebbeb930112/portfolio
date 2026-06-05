@@ -1,0 +1,123 @@
+export type Language = 'sv' | 'en'
+
+export const translations = {
+  sv: {
+    nav: {
+      home: 'Hem',
+      projects: 'Projekt',
+      about: 'Om mig',
+      contact: 'Kontakt',
+    },
+    hero: {
+      title: 'User Experience Designer',
+      location: 'Stockholm, Sverige',
+      cta1: 'Se mitt arbete',
+      cta2: 'Kontakta mig',
+    },
+    about: {
+      intro: 'En kort introduktion',
+      heading: 'Från Försvarsmakten till design',
+      p1: 'Hej!',
+      p2: 'Jag heter Sebastian och är en UX-designer i Stockholm. Efter 13 år inom Försvarsmakten har jag sadlat om mot en ny bana i livet – UX design.',
+      p3: 'Jag älskar hur yrket utvecklas och jag känner verkligen hur jag kan växa inom det. Som person är jag analytisk och älskar att dyka ner i detaljerna för att verkligen förstå helheten – en egenskap jag absolut har min tidigare karriär att tacka för.',
+      beyondHeading: 'Bortom designarbetet',
+      beyondText: 'Utanför skärmen hittar du mig med ett glas vin i handen — alltid nyfiken på nya smaker och upplevelser. Det är en påminnelse om att de bästa upplevelserna, digitala som fysiska, skapas i detaljerna.',
+      skills: [
+        { title: 'Militär disciplin', text: '13 år i Försvarsmakten formar hur jag tänker strukturerat och löser problem under press.' },
+        { title: 'Research-driven', text: 'Alltid insikter och data före lösning — jag förstår problemet innan jag designar svaret.' },
+        { title: 'Figma & Miro', text: 'Mina primära verktyg för allt från lo-fi skisser till hi-fi prototyper och workshops.' },
+        { title: 'Agilt samarbete', text: 'Van att jobba i tvärfunktionella team med utvecklare, PMs och andra designers.' },
+      ],
+    },
+    projects: {
+      uxTitle: 'UX Cases →',
+      uxDesc: 'Här är ett urval av projekt där jag har arbetat med allt från research till färdig design. Varje projekt representerar en unik utmaning och lösning.',
+      uiTitle: 'UI Artwork Showcases →',
+      uiDesc: 'Kreativa UI-explorationer och visuella designexperiment som visar min passion för estetik och detaljer.',
+      readMore: 'Läs case study',
+      comingSoon: 'Kommer snart',
+      cards: {
+        circla: { title: 'Circla – Dödsbo', category: 'UI/UX Design • Landningssida • Live', desc: 'Redesign av en landningssida med dålig konvertering för Circla, del av Sortera.se. Min design är live idag.' },
+        balanza: { title: 'Balanza', category: 'UX/UI Design', desc: 'Webappen som gör sparande för studenter roligt!' },
+        soundscape: { title: 'Soundscape Sleep', category: 'UX Research & Tjänstedesign', desc: 'Appen för dig som vill ha en god natts sömn och produktiva dagar.' },
+        reflexa: { title: 'Reflexa Nordic Workwear', category: 'UX Audit • E-handel • LIA', desc: 'Examensarbete: UX-audit och modernt designförslag för en svensk e-handlare av arbetskläder med 40 års branscherfarenhet.' },
+        spelinsikt: { title: 'Spelinsikt', category: 'Digital tjänst', desc: 'Innovativ digital tjänst med fokus på spelansvar och användarstöd.' },
+        lotr: { title: 'The Lord of the Rings', category: 'UI Design • Fanpage', desc: 'Visuell hyllning till Tolkiens mästerverk – e-handel, karaktärer och interaktiv karta.' },
+        uiShowcase: { title: 'UI Showcase', category: 'Kommer snart', desc: 'Mer kreativt UI arbete på gång.' },
+      },
+    },
+    contact: {
+      heading: 'Kontakt →',
+      desc: 'Letar du efter en UX Designer för ditt nästa projekt? Eller vill du bara diskutera design och användarupplevelser? Jag är alltid öppen för nya möjligheter och samarbeten.',
+      title: 'Kontakta mig',
+      subtitle: 'Jag svarar vanligtvis inom 24 timmar på vardagar.',
+      mail: 'Skicka mail',
+      linkedin: 'LinkedIn',
+      learnMore: 'Vill du veta mer?',
+      viewCV: 'Visa CV',
+      downloadCV: 'Ladda ner som PDF',
+    },
+    footer: '© 2025 Sebastian Blomqvist. Alla rättigheter förbehållna.',
+  },
+
+  en: {
+    nav: {
+      home: 'Home',
+      projects: 'Projects',
+      about: 'About',
+      contact: 'Contact',
+    },
+    hero: {
+      title: 'User Experience Designer',
+      location: 'Stockholm, Sweden',
+      cta1: 'View my work',
+      cta2: 'Get in touch',
+    },
+    about: {
+      intro: 'A brief introduction',
+      heading: 'From the Armed Forces to design',
+      p1: 'Hi there!',
+      p2: 'My name is Sebastian and I\'m a UX designer based in Stockholm. After 13 years in the Swedish Armed Forces, I made a career change into UX design.',
+      p3: 'I love how the profession evolves and I genuinely feel I can grow within it. Most of all, I\'m passionate about the problems good design can solve in people\'s everyday lives. I\'m an analytical person who loves diving into details to understand the bigger picture — a trait I owe to my previous career.',
+      beyondHeading: 'Beyond design work',
+      beyondText: 'Outside of the screen, you\'ll find me with a glass of wine in hand — always curious about new flavors and experiences. A reminder that the best experiences, digital or physical, are found in the details.',
+      skills: [
+        { title: 'Military discipline', text: '13 years in the Armed Forces shapes how I think structurally and solve problems under pressure.' },
+        { title: 'Research-driven', text: 'Always insights and data before solutions — I understand the problem before I design the answer.' },
+        { title: 'Figma & Miro', text: 'My primary tools for everything from lo-fi sketches to hi-fi prototypes and workshops.' },
+        { title: 'Agile collaboration', text: 'Experienced working in cross-functional teams with developers, PMs and other designers.' },
+      ],
+    },
+    projects: {
+      uxTitle: 'UX Cases →',
+      uxDesc: 'Here is a selection of projects where I\'ve worked on everything from research to final design. Each project represents a unique challenge and solution.',
+      uiTitle: 'UI Artwork Showcases →',
+      uiDesc: 'Creative UI explorations and visual design experiments that showcase my passion for aesthetics and details.',
+      readMore: 'Read case study',
+      comingSoon: 'Coming soon',
+      cards: {
+        circla: { title: 'Circla – Estate Clearance', category: 'UI/UX Design • Landing Page • Live', desc: 'Redesign of a poorly converting landing page for Circla, part of Sortera.se. My design is live today.' },
+        balanza: { title: 'Balanza', category: 'UX/UI Design', desc: 'The web app that makes saving money fun for students!' },
+        soundscape: { title: 'Soundscape Sleep', category: 'UX Research & Service Design', desc: 'The app for those who want a good night\'s sleep and productive days.' },
+        reflexa: { title: 'Reflexa Nordic Workwear', category: 'UX Audit • E-commerce • Internship', desc: 'Thesis project: UX audit and modern design proposal for a Swedish workwear retailer with 40 years of industry experience.' },
+        spelinsikt: { title: 'Spelinsikt', category: 'Digital service', desc: 'Innovative digital service focused on responsible gambling and user support.' },
+        lotr: { title: 'The Lord of the Rings', category: 'UI Design • Fanpage', desc: 'A visual tribute to Tolkien\'s masterpiece — e-commerce, characters and interactive map.' },
+        uiShowcase: { title: 'UI Showcase', category: 'Coming soon', desc: 'More creative UI work in progress.' },
+      },
+    },
+    contact: {
+      heading: 'Contact →',
+      desc: 'Looking for a UX Designer for your next project? Or just want to discuss design and user experiences? I\'m always open to new opportunities and collaborations.',
+      title: 'Get in touch',
+      subtitle: 'I usually respond within 24 hours on weekdays.',
+      mail: 'Send email',
+      linkedin: 'LinkedIn',
+      learnMore: 'Want to know more?',
+      viewCV: 'View CV',
+      downloadCV: 'Download as PDF',
+    },
+    footer: '© 2025 Sebastian Blomqvist. All rights reserved.',
+  },
+} as const
+
+export type Translations = typeof translations.sv
