@@ -93,7 +93,7 @@ export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-white mb-8">Konceptet</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Konceptet</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: ShoppingCart, title: 'Köp böcker', desc: 'En ren e-handel-upplevelse med Tolkiens verk, designad med dark mode och guldaccenter.' },
@@ -126,7 +126,7 @@ export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
           <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: '#f59e0b' }}>
             Design Showcase
           </p>
-          <h2 className="text-3xl font-bold text-white mb-4">Landing Page</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Landing Page</h2>
           <p className="text-gray-400 mb-8 leading-relaxed max-w-2xl">
             Hero-sektion med episk känsla och direkt tillgång till bokköp. Dark mode med
             guldaccenter skapar en filmisk, dramatisk atmosfär som fångar Tolkiens värld.
@@ -170,7 +170,7 @@ export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-white mb-8">Designbeslut</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Designbeslut</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { title: 'Dark Mode med guldaccenter', desc: 'Skapar en episk, filmisk känsla som speglar Tolkiens värld.' },
@@ -210,7 +210,7 @@ export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-white mb-4">Vill du se mer?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Vill du se mer?</h2>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
             Detta var en snabb övning i visuell design och UI – gjord på 24 timmar.
           </p>

@@ -302,7 +302,7 @@ function Section({ number, title, children, accentColor }: {
         <span className="text-sm font-bold uppercase tracking-widest" style={{ color: accentColor }}>
           {number}
         </span>
-        <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{title}</h2>
       </div>
       {children}
     </motion.div>

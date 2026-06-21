@@ -35,7 +35,7 @@ function Section({ number, title, children }: { number: string; title: string; c
     >
       <div className="flex items-center gap-4 mb-8">
         <span className="text-sm font-bold uppercase tracking-widest" style={{ color: ORANGE }}>{number}</span>
-        <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{title}</h2>
       </div>
       {children}
     </motion.div>

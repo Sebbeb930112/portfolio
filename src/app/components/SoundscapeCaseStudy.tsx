@@ -86,7 +86,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#ede9fe' }}>
               <Target size={20} style={{ color: '#7c3aed' }} />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900">Uppdragsbeskrivning & Målgrupp</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Uppdragsbeskrivning & Målgrupp</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-xl p-6" style={{ backgroundColor: '#f5f3ff' }}>
@@ -125,7 +125,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#ede9fe' }}>
               <Users size={20} style={{ color: '#7c3aed' }} />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900">Research & Datainsamling</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Research & Datainsamling</h2>
           </div>
           <div className="bg-white rounded-xl p-8">
             <div className="grid grid-cols-2 gap-8 text-center">
@@ -160,7 +160,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#ede9fe' }}>
               <Lightbulb size={20} style={{ color: '#7c3aed' }} />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900">Nyckelinsikter</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Nyckelinsikter</h2>
           </div>
           <p className="text-gray-600 mb-8">
             Genom vår research identifierade vi fem kritiska insikter som styrde designen...
@@ -204,7 +204,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#ede9fe' }}>
               <Sparkles size={20} style={{ color: '#7c3aed' }} />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900">Designlösningar</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Designlösningar</h2>
           </div>
           <div className="space-y-4">
             {[
@@ -228,10 +228,10 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
                 >
                   {s.n}
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h4 className="font-bold text-gray-900 mb-1">{s.title}</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                  <div className="flex gap-2 mt-2">
+                  <div className="flex flex-wrap gap-2 mt-2">
                     {['Premium', 'Delightful', 'Vetenskapligt'].map((tag) => (
                       <span
                         key={tag}
@@ -256,7 +256,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Användningscykel</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Användningscykel</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {[
               { emoji: '🌙', n: '1', title: 'Varva ner', items: ['Sänka visuellt tempo', 'Uppmuntrande notiser', 'Journal'] },
@@ -307,7 +307,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-2">Slutprodukt – Morgonkompis</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Slutprodukt – Morgonkompis</h2>
           <p className="text-purple-300 mb-12 text-sm">Det personliga AI-morgonmeddelandet som startar dagen rätt.</p>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -391,7 +391,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Projektets värde</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Projektets värde</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-xl p-6" style={{ backgroundColor: '#f5f3ff' }}>
               <h4 className="font-bold mb-4" style={{ color: '#7c3aed' }}>Vad jag lärde mig</h4>
