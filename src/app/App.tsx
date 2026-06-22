@@ -25,7 +25,7 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
-      const sections = ['home', 'about', 'projects', 'contact']
+      const sections = ['home', 'projects', 'about', 'contact']
       let current = 'home'
       for (const id of sections) {
         const el = document.getElementById(id)
