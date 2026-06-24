@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowLeft, Target, Users, Lightbulb, Sparkles } from 'lucide-react'
+import { ArrowLeft, Target, Users, Lightbulb, Sparkles, Moon, Bed, Sun, Check } from 'lucide-react'
 
 interface Props {
   onBack: () => void
@@ -231,17 +231,6 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
                 <div className="min-w-0 flex-1">
                   <h4 className="font-bold text-gray-900 mb-1">{s.title}</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {['Premium', 'Delightful', 'Vetenskapligt'].map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-1 rounded-full"
-                        style={{ backgroundColor: '#ede9fe', color: '#7c3aed' }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -259,9 +248,9 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Användningscykel</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {[
-              { emoji: '🌙', n: '1', title: 'Varva ner', items: ['Sänka visuellt tempo', 'Uppmuntrande notiser', 'Journal'] },
-              { emoji: '😴', n: '2', title: 'Sömn', items: ['Sänka visuellt tempo', 'Streamer ljud'] },
-              { emoji: '☀️', n: '3', title: 'Vakna upp', items: ['Sovkollen', 'Morgonkompis', 'Sänka visuellt tempo'] },
+              { Icon: Moon, n: '1', title: 'Varva ner', items: ['Sänka visuellt tempo', 'Uppmuntrande notiser', 'Journal'] },
+              { Icon: Bed, n: '2', title: 'Sömn', items: ['Sänka visuellt tempo', 'Streamer ljud'] },
+              { Icon: Sun, n: '3', title: 'Vakna upp', items: ['Sovkollen', 'Morgonkompis', 'Sänka visuellt tempo'] },
             ].map((c, i) => (
               <motion.div
                 key={c.n}
@@ -273,7 +262,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <span className="text-3xl mb-3 block">{c.emoji}</span>
+                <c.Icon size={24} strokeWidth={1.75} className="mb-3" style={{ color: '#7c3aed' }} />
                 <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#7c3aed' }}>{c.n}.</p>
                 <h4 className="font-bold text-gray-900 mb-3">{c.title}</h4>
                 <ul className="space-y-1">
@@ -293,7 +282,7 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
               animate={{ x: ['0%', '-50%'] }}
               transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
             >
-              {Array(6).fill('✦ Kontinuerlig cykel varje dag ').join('')}
+              {Array(6).fill('Kontinuerlig cykel varje dag  •  ').join('')}
             </motion.div>
           </div>
         </motion.section>
@@ -361,22 +350,22 @@ export default function SoundscapeCaseStudy({ onBack }: Props) {
             {/* Features */}
             <div className="space-y-4">
               {[
-                { icon: '✦', text: 'Personlig AI-hälsning: "God morgon Alex!"' },
-                { icon: '✦', text: 'Schemaintegration: dagens agenda direkt i appen' },
-                { icon: '✦', text: 'Inspirerande dagscitat' },
-                { icon: '✦', text: 'Röstinteraktion med snabbförslag' },
-                { icon: '✦', text: 'Premium dark mode design med clean UI' },
-              ].map((f, i) => (
+                'Personlig AI-hälsning: "God morgon Alex!"',
+                'Schemaintegration: dagens agenda direkt i appen',
+                'Inspirerande dagscitat',
+                'Röstinteraktion med snabbförslag',
+                'Premium dark mode design med clean UI',
+              ].map((text, i) => (
                 <motion.div
-                  key={f.text}
+                  key={text}
                   className="flex items-start gap-3"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.4 }}
                 >
-                  <span className="text-purple-400 font-bold flex-shrink-0 mt-0.5">{f.icon}</span>
-                  <span className="text-gray-300 text-sm leading-relaxed">{f.text}</span>
+                  <Check size={18} strokeWidth={2} className="text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-300 text-sm leading-relaxed">{text}</span>
                 </motion.div>
               ))}
             </div>

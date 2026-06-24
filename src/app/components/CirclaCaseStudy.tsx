@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, ExternalLink, TrendingDown, FileText, Palette, Target, Star, Map, ListChecks, Award, HelpCircle, Check, X } from 'lucide-react'
 
 interface Props {
   onBack: () => void
@@ -80,35 +80,6 @@ export default function CirclaCaseStudy({ onBack }: Props) {
           </motion.a>
         </motion.div>
 
-        {/* Full-page design screenshot */}
-        <motion.div
-          className="mt-12 rounded-2xl overflow-hidden shadow-2xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          <div className="bg-gray-800 px-4 py-3 flex items-center gap-2">
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-400" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400" />
-              <div className="w-3 h-3 rounded-full bg-green-400" />
-            </div>
-            <div className="flex-1 bg-gray-700 rounded px-3 py-1 text-gray-300 text-xs text-center">
-              circla.se/dodsbo
-            </div>
-          </div>
-          <div className="max-h-[700px] overflow-y-auto">
-            <img
-              src="/circla-design-hq.png"
-              alt="Circla landningssida – design"
-              className="w-full"
-            />
-          </div>
-          <div className="bg-gray-800 px-4 py-2 text-center">
-            <span className="text-gray-400 text-xs">Scrolla för att se hela sidan</span>
-          </div>
-        </motion.div>
-
         {/* Info cards */}
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12"
@@ -136,9 +107,9 @@ export default function CirclaCaseStudy({ onBack }: Props) {
         <Section number="01" title="Problemet">
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             {[
-              { icon: '📉', title: 'Dålig konvertering', text: 'Landningssidan drev trafik men lyckades inte omvandla besökare till kunder.' },
-              { icon: '📝', title: 'SEO-tung text', text: 'Sidan var fylld med svårläst, optimerad text för sökmotorer — inte för människor.' },
-              { icon: '🎨', title: 'Varumärkesdissonans', text: 'Designen speglade inte Circlas professionella identitet eller skapade förtroende.' },
+              { Icon: TrendingDown, title: 'Dålig konvertering', text: 'Landningssidan drev trafik men lyckades inte omvandla besökare till kunder.' },
+              { Icon: FileText, title: 'SEO-tung text', text: 'Sidan var fylld med svårläst, optimerad text för sökmotorer — inte för människor.' },
+              { Icon: Palette, title: 'Varumärkesdissonans', text: 'Designen speglade inte Circlas professionella identitet eller skapade förtroende.' },
             ].map((p, i) => (
               <motion.div
                 key={p.title}
@@ -149,7 +120,7 @@ export default function CirclaCaseStudy({ onBack }: Props) {
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
               >
-                <span className="text-3xl mb-4 block">{p.icon}</span>
+                <p.Icon size={24} strokeWidth={1.75} className="mb-4" style={{ color: GREEN }} />
                 <h4 className="font-bold text-gray-900 mb-2">{p.title}</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">{p.text}</p>
               </motion.div>
@@ -185,11 +156,11 @@ export default function CirclaCaseStudy({ onBack }: Props) {
                 transition={{ delay: i * 0.08 }}
               >
                 <div className="bg-white p-5 flex items-start gap-3">
-                  <span className="text-red-400 font-bold flex-shrink-0">✕</span>
+                  <X size={18} strokeWidth={2} className="text-red-400 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-500 text-sm leading-relaxed">{row.before}</p>
                 </div>
                 <div className="p-5 flex items-start gap-3" style={{ backgroundColor: GREEN_LIGHT }}>
-                  <span className="font-bold flex-shrink-0" style={{ color: GREEN }}>✓</span>
+                  <Check size={18} strokeWidth={2} className="flex-shrink-0 mt-0.5" style={{ color: GREEN }} />
                   <p className="text-gray-700 text-sm leading-relaxed font-medium">{row.after}</p>
                 </div>
               </motion.div>
@@ -236,12 +207,12 @@ export default function CirclaCaseStudy({ onBack }: Props) {
           {/* Key features grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon: '🎯', title: 'Dual CTA i hero', text: 'Begär prisförslag + Hur fungerar det — två vägar in direkt från start.' },
-              { icon: '⭐', title: 'Social proof', text: 'Kundrecensioner tidigt i flödet för att bygga förtroende.' },
-              { icon: '🗺️', title: 'Geografisk relevans', text: 'Karta som visar täckningsområdet — Stockholm & Mälardalen.' },
-              { icon: '📋', title: 'Steg-för-steg', text: 'Tydligt "Så här går det till" reducerar osäkerhet i en känslig situation.' },
-              { icon: '🏆', title: 'Trust-sektion', text: 'ISO 14001, kvalitetscertifierad, 100% försäkrad, 15+ år erfarenhet.' },
-              { icon: '❓', title: 'FAQ-sektion', text: 'Vanliga frågor besvarade direkt på sidan — minskar supportbehov.' },
+              { Icon: Target, title: 'Dual CTA i hero', text: 'Begär prisförslag + Hur fungerar det — två vägar in direkt från start.' },
+              { Icon: Star, title: 'Social proof', text: 'Kundrecensioner tidigt i flödet för att bygga förtroende.' },
+              { Icon: Map, title: 'Geografisk relevans', text: 'Karta som visar täckningsområdet — Stockholm & Mälardalen.' },
+              { Icon: ListChecks, title: 'Steg-för-steg', text: 'Tydligt "Så här går det till" reducerar osäkerhet i en känslig situation.' },
+              { Icon: Award, title: 'Trust-sektion', text: 'ISO 14001, kvalitetscertifierad, 100% försäkrad, 15+ år erfarenhet.' },
+              { Icon: HelpCircle, title: 'FAQ-sektion', text: 'Vanliga frågor besvarade direkt på sidan — minskar supportbehov.' },
             ].map((f, i) => (
               <motion.div
                 key={f.title}
@@ -252,7 +223,7 @@ export default function CirclaCaseStudy({ onBack }: Props) {
                 transition={{ delay: i * 0.08 }}
                 whileHover={{ y: -4 }}
               >
-                <span className="text-2xl mb-3 block">{f.icon}</span>
+                <f.Icon size={22} strokeWidth={1.75} className="mb-3" style={{ color: GREEN }} />
                 <h5 className="font-bold text-gray-900 text-sm mb-1">{f.title}</h5>
                 <p className="text-gray-500 text-xs leading-relaxed">{f.text}</p>
               </motion.div>

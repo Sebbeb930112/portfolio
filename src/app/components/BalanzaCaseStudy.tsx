@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowLeft, Check, ChevronRight } from 'lucide-react'
+import { ArrowLeft, Check, ChevronRight, Lightbulb, Gamepad2 } from 'lucide-react'
 
 interface Props {
   onBack: () => void
@@ -75,7 +75,7 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
             Studenter idag har svårt att få ekonomin att gå runt. Det vill vi ändra på genom att
             hjälpa studenterna att se över sina utgifter och spara pengar genom gamification.
           </p>
-          <div className="border-l-4 border-orange-400 bg-gray-50 pl-6 py-4 rounded-r-xl">
+          <div className="bg-gray-50 p-6 rounded-xl">
             <p className="text-gray-700 italic leading-relaxed">
               "Hur kan vi designa en engagerande mobilapp som hjälper studenter att få bättre
               kontroll över sin ekonomi och spara pengar på ett roligt och motiverande sätt?"
@@ -133,8 +133,11 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
             </div>
           </div>
 
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl p-6">
-            <p className="font-bold text-gray-900 mb-2">💡 Utmaning: Samarbete med Java-programmerare</p>
+          <div className="bg-yellow-50 rounded-xl p-6">
+            <div className="flex items-center gap-2 mb-2">
+              <Lightbulb size={18} strokeWidth={1.75} className="text-yellow-600 flex-shrink-0" />
+              <p className="font-bold text-gray-900">Utmaning: Samarbete med Java-programmerare</p>
+            </div>
             <p className="text-gray-600 text-sm leading-relaxed">
               Under projektet samarbetade vi agilt med Java-programmerare. En viktig lärdom var att
               programmering tar längre tid än design – att lära sig bromsa designprocessen och synka
@@ -185,7 +188,7 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
               ))}
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-4">🎮 Gamification-element</h4>
+              <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2"><Gamepad2 size={18} strokeWidth={1.75} className="text-orange-500" />Gamification-element</h4>
               {['XP-poäng för sparade mål', 'Achievement badges', 'Dagliga utmaningar', 'Leaderboard med vänner'].map((f) => (
                 <div key={f} className="flex items-center gap-2 mb-2">
                   <Check size={16} className="text-orange-500 flex-shrink-0" />
@@ -226,7 +229,7 @@ export default function BalanzaCaseStudy({ onBack }: Props) {
               <h4 className="font-bold text-green-800 mb-4">Positiv feedback</h4>
               {['Visuellt tilltalande och lätt att förstå', 'Gamification-element motiverade användarna', 'Enkel och intuitiv navigation'].map((f) => (
                 <div key={f} className="flex items-start gap-2 mb-2">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <Check size={16} strokeWidth={2} className="text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-green-800">{f}</span>
                 </div>
               ))}

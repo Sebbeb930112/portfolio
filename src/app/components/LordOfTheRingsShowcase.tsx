@@ -1,12 +1,29 @@
 import { motion } from 'motion/react'
-import { ArrowLeft, ShoppingCart, Users, MapPin, ChevronsDown } from 'lucide-react'
+import { useRef } from 'react'
+import { ArrowLeft, ShoppingCart, Users, MapPin } from 'lucide-react'
 
 interface Props {
   onBack: () => void
   onContact: () => void
 }
 
+// Click hotspots placed over the menu links inside the image.
+// All values are percentages of the rendered image so they scale responsively.
+const PROTOTYPE_HOTSPOTS = [
+  { id: 'home', offset: 0, top: 0.5, left: 25, width: 16, height: 1.8 },
+  { id: 'characters', offset: 0.22, top: 0.5, left: 46, width: 18, height: 1.8 },
+  { id: 'map', offset: 0.73, top: 0.5, left: 68, width: 14, height: 1.8 },
+]
+
 export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
+  const protoRef = useRef<HTMLDivElement>(null)
+  const imgRef = useRef<HTMLImageElement>(null)
+
+  const scrollToSection = (offset: number) => {
+    if (!protoRef.current || !imgRef.current) return
+    protoRef.current.scrollTo({ top: offset * imgRef.current.clientHeight, behavior: 'smooth' })
+  }
+
   return (
     <div
       className="min-h-screen text-white"
@@ -116,7 +133,7 @@ export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
           </div>
         </motion.section>
 
-        {/* Landing Page showcase */}
+        {/* Landing Page prototype */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -124,41 +141,42 @@ export default function LordOfTheRingsShowcase({ onBack, onContact }: Props) {
           transition={{ duration: 0.6 }}
         >
           <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: '#f59e0b' }}>
-            Design Showcase
+            Interaktiv prototyp
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Landing Page</h2>
           <p className="text-gray-400 mb-8 leading-relaxed max-w-2xl">
-            Hero-sektion med episk känsla och direkt tillgång till bokköp. Dark mode med
-            guldaccenter skapar en filmisk, dramatisk atmosfär som fångar Tolkiens värld.
+            Klicka i menyn för att navigera mellan sektioner — eller scrolla fritt i fönstret.
+            Dark mode med guldaccenter skapar en filmisk, dramatisk atmosfär som fångar Tolkiens värld.
           </p>
 
           <div className="relative rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
             <div
+              ref={protoRef}
               className="max-h-[800px] overflow-y-auto"
-              style={{ scrollbarColor: '#f59e0b #1a1410' }}
+              style={{ scrollbarColor: '#f59e0b #1a1410', scrollBehavior: 'smooth' }}
             >
-              <div
-                className="flex items-center justify-center min-h-[600px]"
-                style={{ background: 'linear-gradient(135deg, #0a0805 0%, #1a1208 50%, #0a0805 100%)' }}
-              >
-                <div className="text-center px-8">
-                  <p className="text-6xl mb-6">💍</p>
-                  <p className="text-white/30 font-light tracking-widest text-sm uppercase">
-                    LOTR Landing Page – bildplatshållare
-                  </p>
-                  <p className="text-white/20 text-xs mt-2">
-                    (Ladda upp Figma-design för att visa här)
-                  </p>
-                </div>
+              <div className="relative">
+                <img
+                  ref={imgRef}
+                  src="/lotr-prototype.png"
+                  alt="LOTR Landing Page – prototyp"
+                  className="w-full block"
+                />
+                {PROTOTYPE_HOTSPOTS.map((h) => (
+                  <button
+                    key={h.id}
+                    onClick={() => scrollToSection(h.offset)}
+                    aria-label={`Navigera till ${h.id}`}
+                    className="absolute cursor-pointer border-none bg-transparent p-0"
+                    style={{
+                      top: `${h.top}%`,
+                      left: `${h.left}%`,
+                      width: `${h.width}%`,
+                      height: `${h.height}%`,
+                    }}
+                  />
+                ))}
               </div>
-            </div>
-
-            {/* Scroll indicator */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
-              <p className="text-xs" style={{ color: '#f59e0b' }}>Scrolla för att se mer</p>
-              <motion.div animate={{ y: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <ChevronsDown size={16} style={{ color: '#f59e0b' }} />
-              </motion.div>
             </div>
           </div>
         </motion.section>

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowLeft, Target, Users, Lightbulb, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react'
+import { ArrowLeft, Target, Users, Lightbulb, TrendingUp, CheckCircle, ArrowRight, Check, X } from 'lucide-react'
 
 interface Props {
   onBack: () => void
@@ -97,14 +97,6 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
               Reflexa Nordic Workwear
             </h2>
             <p className="text-white/60 text-lg">Från UX Audit till modernt designförslag</p>
-            <div className="flex gap-3 mt-8 flex-wrap justify-center">
-              {['#1C2B3A', '#FF8229', '#F6F6F6', '#FFFFFF'].map((c) => (
-                <div key={c} className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 rounded-full border border-white/20" style={{ backgroundColor: c }} />
-                  <span className="text-white/40 text-xs">{c}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </motion.div>
 
@@ -198,8 +190,7 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
             ].map((q) => (
               <motion.div
                 key={q.role}
-                className="bg-white rounded-xl p-6 border-l-4"
-                style={{ borderColor: ORANGE }}
+                className="bg-white rounded-xl p-6"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -244,11 +235,11 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
                 transition={{ delay: i * 0.08 }}
               >
                 <div className="bg-white p-5 flex items-start gap-3">
-                  <span className="text-red-400 font-bold flex-shrink-0">✕</span>
+                  <X size={18} strokeWidth={2} className="text-red-400 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm leading-relaxed">{row.problem}</p>
                 </div>
                 <div className="p-5 flex items-start gap-3" style={{ backgroundColor: ORANGE_LIGHT }}>
-                  <span className="font-bold flex-shrink-0" style={{ color: ORANGE }}>✓</span>
+                  <Check size={18} strokeWidth={2} className="flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
                   <p className="text-gray-700 text-sm leading-relaxed font-medium">{row.solution}</p>
                 </div>
               </motion.div>

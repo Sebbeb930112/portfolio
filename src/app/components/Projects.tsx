@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useMotionValue, useTransform, useSpring } from 'motion/react'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Clock } from 'lucide-react'
 
 type ActiveCaseStudy = 'balanza' | 'soundscape' | 'spelinsikt' | 'lotr' | 'reflexa' | 'circla' | null
 
@@ -22,22 +22,13 @@ interface ProjectCard {
 
 const uxCases: ProjectCard[] = [
   {
-    id: 'balanza',
-    title: 'Balanza',
-    category: 'UX/UI Design',
-    description: 'Webappen som gör sparande för studenter roligt!',
-    tags: ['Research', 'UI-design', 'Prototyper', 'Mobil'],
+    id: 'reflexa',
+    title: 'Reflexa Nordic Workwear',
+    category: 'UX Audit • E-handel • LIA',
+    description: 'Examensarbete: UX-audit och modernt designförslag för en svensk e-handlare av arbetskläder med 40 års branscherfarenhet.',
+    tags: ['UX Audit', 'E-handel', 'Research', 'Prototyp', 'LIA'],
     hasCaseStudy: true,
-    image: '/balanza-hero.jpg',
-  },
-  {
-    id: 'soundscape',
-    title: 'Soundscape Sleep',
-    category: 'UX Research & Tjänstedesign',
-    description: 'Appen för dig som vill ha en god natts sömn och produktiva dagar.',
-    tags: ['Användarresearch', 'Tjänstedesign', 'Användartester'],
-    hasCaseStudy: true,
-    image: '/soundscape-hero.jpg',
+    image: '/Reflexathumbnail.jpg',
   },
   {
     id: 'circla',
@@ -49,13 +40,22 @@ const uxCases: ProjectCard[] = [
     image: '/circlathumbnail.jpg',
   },
   {
-    id: 'reflexa',
-    title: 'Reflexa Nordic Workwear',
-    category: 'UX Audit • E-handel • LIA',
-    description: 'Examensarbete: UX-audit och modernt designförslag för en svensk e-handlare av arbetskläder med 40 års branscherfarenhet.',
-    tags: ['UX Audit', 'E-handel', 'Research', 'Prototyp', 'LIA'],
+    id: 'soundscape',
+    title: 'Soundscape Sleep',
+    category: 'UX Research & Tjänstedesign',
+    description: 'Appen för dig som vill ha en god natts sömn och produktiva dagar.',
+    tags: ['Användarresearch', 'Tjänstedesign', 'Användartester'],
     hasCaseStudy: true,
-    image: '/Reflexathumbnail.jpg',
+    image: '/soundscape-hero.jpg',
+  },
+  {
+    id: 'balanza',
+    title: 'Balanza',
+    category: 'UX/UI Design',
+    description: 'Webappen som gör sparande för studenter roligt!',
+    tags: ['Research', 'UI-design', 'Prototyper', 'Mobil'],
+    hasCaseStudy: true,
+    image: '/balanza-hero.jpg',
   },
   {
     id: 'spelinsikt',
@@ -160,13 +160,7 @@ function TiltCard({ card, onClick, index }: { card: ProjectCard; onClick?: () =>
 
         {card.isComingSoon && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm">
-            <motion.span
-              className="text-4xl mb-2"
-              animate={{ rotate: [0, 12, -12, 0], scale: [1, 1.1, 1] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {card.emoji}
-            </motion.span>
+            <Clock size={32} strokeWidth={1.5} className="mb-2 text-gray-600" />
             <span className="font-semibold text-gray-700 text-sm">Kommer snart</span>
           </div>
         )}

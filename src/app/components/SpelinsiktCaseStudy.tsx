@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Gamepad2 } from 'lucide-react'
 
 interface Props {
   onBack: () => void
@@ -43,7 +43,7 @@ export default function SpelinsiktCaseStudy({ onBack }: Props) {
           transition={{ delay: 0.2 }}
         >
           <div className="text-center">
-            <div className="text-8xl mb-4">🎮</div>
+            <Gamepad2 size={64} strokeWidth={1.5} className="mx-auto mb-4 text-gray-400" />
             <p className="text-gray-400 text-sm">Projektbild – placeholder</p>
           </div>
         </motion.div>
@@ -72,7 +72,7 @@ export default function SpelinsiktCaseStudy({ onBack }: Props) {
       <div className="px-6 max-w-5xl mx-auto pb-24 space-y-16">
         {/* 01 Problem */}
         <Section number="01" title="Problemformulering">
-          <div className="bg-white border-l-4 border-blue-400 rounded-r-xl p-6">
+          <div className="bg-white rounded-xl p-6">
             <p className="text-gray-500 italic text-sm leading-relaxed">
               [Beskriv problemet som projektet adresserar. Vad är det för utmaning? Varför är det viktigt?]
             </p>
@@ -115,7 +115,7 @@ export default function SpelinsiktCaseStudy({ onBack }: Props) {
               { border: 'border-purple-400', color: 'text-purple-700', title: 'Funktion 2', text: '[Beskriv nyckelfunktion 2]' },
               { border: 'border-green-400', color: 'text-green-700', title: 'Funktion 3', text: '[Beskriv nyckelfunktion 3]' },
             ].map((f) => (
-              <div key={f.title} className={`bg-white border-l-4 ${f.border} rounded-r-xl p-5`}>
+              <div key={f.title} className="bg-white rounded-xl p-5">
                 <h4 className={`font-bold ${f.color} mb-1`}>{f.title}</h4>
                 <p className="text-gray-500 text-sm italic">{f.text}</p>
               </div>
