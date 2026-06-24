@@ -79,7 +79,7 @@ const uiShowcases: ProjectCard[] = [
     tags: ['UI-design', 'Visuell design', 'Dark mode'],
     hasCaseStudy: false,
     isComingSoon: false,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80',
+    image: '/lotr-thumbnail.jpg',
   },
   {
     id: null,
