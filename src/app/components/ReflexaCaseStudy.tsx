@@ -85,20 +85,20 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
 
         {/* Hero visual */}
         <motion.div
-          className="mt-12 rounded-2xl overflow-hidden"
-          style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #2d4a63 100%)` }}
+          className="mt-12 rounded-2xl overflow-hidden bg-white p-3 sm:p-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <div className="p-12 lg:p-16 flex flex-col items-center justify-center text-center min-h-[280px]">
-            <p className="text-xs uppercase tracking-widest mb-4" style={{ color: ORANGE }}>Examensarbete · LIA · Solution Group</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              Reflexa Nordic Workwear
-            </h2>
-            <p className="text-white/60 text-lg">Från UX Audit till modernt designförslag</p>
-          </div>
+          <img
+            src="/reflexa-hero.jpg"
+            alt="Reflexa Nordic Workwear – startsida, kodad version av designförslaget"
+            className="w-full h-auto rounded-lg"
+          />
         </motion.div>
+        <p className="text-center text-gray-400 text-xs mt-3 uppercase tracking-widest">
+          Designförslaget byggt i kod — se hela flödet under "Från Figma till kod"
+        </p>
 
         {/* Info cards */}
         <motion.div
@@ -150,6 +150,16 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
                 konvertera besökare till köp.
               </p>
             </div>
+          </div>
+
+          {/* Före / efter */}
+          <div className="bg-white rounded-2xl p-6 mb-8">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Före &amp; efter — startsidan</p>
+            <img
+              src="/reflexa-before-after.jpg"
+              alt="Jämförelse mellan gamla reflexa.se och det nya designförslaget"
+              className="w-full h-auto rounded-xl"
+            />
           </div>
 
           {/* Målbild */}
@@ -289,6 +299,16 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
             </div>
           </div>
 
+          {/* Designsystemet i praktiken */}
+          <div className="bg-white rounded-2xl p-6 mb-6">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Designsystemet i praktiken — produktlista</p>
+            <img
+              src="/reflexa-kategori.jpg"
+              alt="Kategorisida med filter och sortering, navy och amber i det byggda gränssnittet"
+              className="w-full h-auto rounded-xl"
+            />
+          </div>
+
           {/* Key design decisions */}
           <div className="grid md:grid-cols-2 gap-4">
             {[
@@ -361,13 +381,20 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
               Det initiala förslaget placerade lagermatrisen exklusivt i företagsläget. Testet visade
               att detta var för begränsande.
             </p>
-            <div className="rounded-xl p-4" style={{ backgroundColor: 'rgba(255,130,41,0.15)' }}>
+            <div className="rounded-xl p-4 mb-6" style={{ backgroundColor: 'rgba(255,130,41,0.15)' }}>
               <p className="text-sm font-semibold mb-2" style={{ color: ORANGE }}>Reviderat beslut →</p>
               <p className="text-white/80 text-sm leading-relaxed">
                 Lagermatrisen är nu tillgänglig som en overlay på alla produktsidor, för alla
                 användare. Privatpersonen använder vanlig storleksväljare som standard, men tillgång
                 till matris finns även här. Ingen tvingas till ett läge de inte behöver.
               </p>
+            </div>
+            <div className="bg-white rounded-xl p-3 sm:p-4">
+              <img
+                src="/reflexa-lagermatris.jpg"
+                alt="Lagermatrisen implementerad — färg och storlek med lagersaldo per cell, öppen på en produktsida"
+                className="w-full h-auto rounded-lg"
+              />
             </div>
             <p className="text-center text-white/40 text-xs mt-6 tracking-widest uppercase">Design → Test → Insikt → Iteration</p>
           </div>
@@ -437,6 +464,34 @@ export default function ReflexaCaseStudy({ onBack }: Props) {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </Section>
+
+        {/* 07 Från Figma till kod */}
+        <Section number="07" title="Från Figma till kod">
+          <p className="text-gray-600 leading-relaxed mb-8">
+            Efter examensarbetet byggde jag designförslaget i kod — Next.js, React och Tailwind — för
+            att testa om designsystemet höll hela vägen. Mobilvyn är inte designad separat i Figma
+            utan härledd från samma komponenter, vilket i sig var ett test på hur robust systemet var.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-white rounded-2xl p-6">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Produktsida</p>
+              <img src="/reflexa-produktsida.jpg" alt="Produktsida med köpblock och storleksval" className="w-full h-auto rounded-xl" />
+            </div>
+            <div className="bg-white rounded-2xl p-6">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Kassa</p>
+              <img src="/reflexa-kassa.jpg" alt="Kassaflöde med stegindikator och ordersammanfattning" className="w-full h-auto rounded-xl" />
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6">
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 font-medium">Mobil — härledd från samma komponenter</p>
+            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+              <img src="/reflexa-mobile-start.jpg" alt="Startsidan på mobil" className="w-full h-auto rounded-xl" />
+              <img src="/reflexa-mobile-produktsida.jpg" alt="Produktsidan på mobil" className="w-full h-auto rounded-xl" />
+            </div>
           </div>
         </Section>
 
