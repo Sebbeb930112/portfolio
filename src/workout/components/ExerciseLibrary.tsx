@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { exercises } from '../data/exercises'
 import { equipmentLabels, type Equipment } from '../types'
 import ExerciseDetailModal from './ExerciseDetailModal'
+import ExerciseIllustration from '../illustrations/ExerciseIllustration'
 
 const filters: { id: Equipment | 'all'; label: string }[] = [
   { id: 'all', label: 'Alla' },
@@ -19,19 +20,19 @@ export default function ExerciseLibrary() {
 
   return (
     <div className="mx-auto max-w-md px-5 pb-28 pt-8">
-      <h1 className="text-2xl font-bold text-gray-900">Övningsbibliotek</h1>
-      <p className="mt-1 text-sm text-gray-500">Bläddra bland alla övningar och läs hur du gör dem rätt.</p>
+      <h1 className="text-[26px] font-bold text-[color:var(--ink)]">Övningsbibliotek</h1>
+      <p className="mt-1.5 text-sm text-[color:var(--body)]">Bläddra bland alla övningar och läs hur du gör dem rätt.</p>
 
-      <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+      <div className="mt-5 flex gap-2 overflow-x-auto pb-1">
         {filters.map((f) => (
           <button
             key={f.id}
             onClick={() => setFilter(f.id)}
-            className="cursor-pointer whitespace-nowrap rounded-full border-none px-4 py-1.5 text-sm font-medium"
+            className="cursor-pointer whitespace-nowrap rounded-full border-none px-4 py-1.5 text-sm font-medium transition-colors"
             style={
               filter === f.id
-                ? { backgroundColor: '#059669', color: 'white' }
-                : { backgroundColor: 'white', color: '#6b7280' }
+                ? { backgroundColor: 'var(--ink)', color: 'white' }
+                : { backgroundColor: 'var(--card)', color: 'var(--body)', boxShadow: 'var(--shadow-sm)' }
             }
           >
             {f.label}
@@ -39,24 +40,31 @@ export default function ExerciseLibrary() {
         ))}
       </div>
 
-      <div className="mt-4 flex flex-col gap-3">
+      <div className="mt-4 flex flex-col gap-2.5">
         {visible.map((ex) => (
           <button
             key={ex.id}
             onClick={() => setSelectedId(ex.id)}
-            className="flex cursor-pointer flex-col items-start rounded-2xl border-none bg-white p-4 text-left shadow-sm"
+            className="flex cursor-pointer items-center gap-3.5 rounded-[22px] border-none bg-[color:var(--card)] p-3 text-left"
+            style={{ boxShadow: 'var(--shadow-sm)' }}
           >
-            <div className="flex w-full items-center justify-between">
-              <span className="font-semibold text-gray-900">{ex.name}</span>
-              <span className="text-xs font-medium text-emerald-600">{ex.muscleGroup}</span>
-            </div>
-            <p className="mt-1 text-sm text-gray-500">{ex.description}</p>
-            <div className="mt-2 flex gap-1.5">
-              {ex.equipment.map((eq) => (
-                <span key={eq} className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700">
-                  {equipmentLabels[eq]}
-                </span>
-              ))}
+            <ExerciseIllustration exerciseId={ex.id} size={64} />
+            <div className="min-w-0 flex-1">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="truncate font-semibold text-[color:var(--ink)]">{ex.name}</span>
+              </div>
+              <p className="mt-0.5 truncate text-xs text-[color:var(--muted)]">{ex.muscleGroup}</p>
+              <div className="mt-1.5 flex gap-1.5">
+                {ex.equipment.map((eq) => (
+                  <span
+                    key={eq}
+                    className="rounded-full px-2 py-0.5 text-[10px] font-semibold"
+                    style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent-dark)' }}
+                  >
+                    {equipmentLabels[eq]}
+                  </span>
+                ))}
+              </div>
             </div>
           </button>
         ))}
