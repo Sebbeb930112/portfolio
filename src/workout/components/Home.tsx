@@ -21,7 +21,6 @@ function getStreak(history: CompletedSession[]): number {
     if (dates.includes(expectedStr)) {
       streak++
     } else if (i === 0) {
-      // idag räknas inte som avbrott om inget pass gjorts än
       continue
     } else {
       break
@@ -31,7 +30,7 @@ function getStreak(history: CompletedSession[]): number {
 }
 
 export default function Home({ history, onStartDay, onGoToProgram }: Props) {
-  const todayIndex = (new Date().getDay() + 6) % 7 // måndag = 0
+  const todayIndex = (new Date().getDay() + 6) % 7
   const todaysPlan = weekSchedule[todayIndex]
   const suggestedDay = todaysPlan.dayId ? programDayById(todaysPlan.dayId) : null
   const streak = getStreak(history)
@@ -39,61 +38,77 @@ export default function Home({ history, onStartDay, onGoToProgram }: Props) {
 
   return (
     <div className="mx-auto max-w-md px-5 pb-28 pt-8">
-      <p className="text-sm font-medium" style={{ color: '#059669' }}>
-        Hej! 👋
+      <p className="eyebrow" style={{ color: 'var(--accent)' }}>
+        Hej 👋
       </p>
-      <h1 className="mt-1 text-2xl font-bold text-gray-900">Träna Hemma</h1>
-      <p className="mt-2 text-sm leading-relaxed text-gray-500">
+      <h1 className="mt-1.5 text-[28px] font-extrabold text-[color:var(--ink)]">Träna Hemma</h1>
+      <p className="mt-2 text-sm leading-relaxed text-[color:var(--body)]">
         Enkla pass för hemmet med hantlar, matta och gummiband. Ingen erfarenhet krävs – bara följ steg för steg.
       </p>
 
       <div className="mt-6 flex gap-3">
-        <div className="flex flex-1 items-center gap-3 rounded-2xl bg-white p-4 shadow-sm">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: '#fef3c7' }}>
-            <Flame size={20} color="#d97706" />
+        <div
+          className="flex flex-1 items-center gap-3 rounded-[20px] bg-[color:var(--card)] p-4"
+          style={{ boxShadow: 'var(--shadow-sm)' }}
+        >
+          <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: 'var(--amber-light)' }}>
+            <Flame size={19} color="var(--amber)" />
           </div>
           <div>
-            <p className="text-lg font-bold text-gray-900 leading-none">{streak}</p>
-            <p className="text-xs text-gray-500">dagar i rad</p>
+            <p className="text-lg font-bold leading-none text-[color:var(--ink)]">{streak}</p>
+            <p className="text-xs text-[color:var(--muted)]">dagar i rad</p>
           </div>
         </div>
-        <div className="flex flex-1 items-center gap-3 rounded-2xl bg-white p-4 shadow-sm">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: '#d1fae5' }}>
-            <Dumbbell size={20} color="#059669" />
+        <div
+          className="flex flex-1 items-center gap-3 rounded-[20px] bg-[color:var(--card)] p-4"
+          style={{ boxShadow: 'var(--shadow-sm)' }}
+        >
+          <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: 'var(--accent-light)' }}>
+            <Dumbbell size={19} color="var(--accent-dark)" />
           </div>
           <div>
-            <p className="text-lg font-bold text-gray-900 leading-none">{totalSessions}</p>
-            <p className="text-xs text-gray-500">pass totalt</p>
+            <p className="text-lg font-bold leading-none text-[color:var(--ink)]">{totalSessions}</p>
+            <p className="text-xs text-[color:var(--muted)]">pass totalt</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 rounded-3xl p-6 text-white shadow-md" style={{ backgroundColor: '#059669' }}>
-        <p className="text-xs font-medium uppercase tracking-wide text-emerald-100">Dagens förslag</p>
+      <div
+        className="mt-6 rounded-[28px] p-6 text-white"
+        style={{
+          background: 'linear-gradient(155deg, var(--accent-strong), var(--accent-dark))',
+          boxShadow: 'var(--shadow-md)',
+        }}
+      >
+        <p className="eyebrow" style={{ color: 'rgba(255,255,255,0.75)' }}>
+          Dagens förslag
+        </p>
         {suggestedDay ? (
           <>
-            <h2 className="mt-1 text-xl font-bold">{suggestedDay.label} – {suggestedDay.focus}</h2>
-            <p className="mt-2 text-sm text-emerald-50">
+            <h2 className="mt-1.5 text-xl font-bold">
+              {suggestedDay.label} – {suggestedDay.focus}
+            </h2>
+            <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
               {suggestedDay.exercises.length} övningar · ca {estimateMinutes(suggestedDay.exercises.length)} min
             </p>
             <button
               onClick={() => onStartDay(suggestedDay.id)}
-              className="mt-4 flex cursor-pointer items-center gap-2 rounded-full border-none bg-white px-5 py-2.5 text-sm font-semibold"
-              style={{ color: '#059669' }}
+              className="mt-5 flex cursor-pointer items-center gap-2 rounded-full border-none bg-white px-5 py-2.5 text-sm font-semibold"
+              style={{ color: 'var(--accent-dark)' }}
             >
-              <Play size={16} fill="#059669" /> Starta dagens pass
+              <Play size={16} fill="var(--accent-dark)" /> Starta dagens pass
             </button>
           </>
         ) : (
           <>
-            <h2 className="mt-1 text-xl font-bold">Vilodag</h2>
-            <p className="mt-2 text-sm text-emerald-50">
+            <h2 className="mt-1.5 text-xl font-bold">Vilodag</h2>
+            <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
               Ingen ordinarie träning idag – vila, promenera eller stretcha lite om du vill.
             </p>
             <button
               onClick={onGoToProgram}
-              className="mt-4 flex cursor-pointer items-center gap-2 rounded-full border-none bg-white px-5 py-2.5 text-sm font-semibold"
-              style={{ color: '#059669' }}
+              className="mt-5 flex cursor-pointer items-center gap-2 rounded-full border-none bg-white px-5 py-2.5 text-sm font-semibold"
+              style={{ color: 'var(--accent-dark)' }}
             >
               Se veckoschemat
             </button>
@@ -101,18 +116,18 @@ export default function Home({ history, onStartDay, onGoToProgram }: Props) {
         )}
       </div>
 
-      <div className="mt-6">
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">Det här behöver du</h3>
+      <div className="mt-7">
+        <h3 className="mb-3 text-sm font-bold text-[color:var(--ink)]">Det här behöver du</h3>
         <div className="grid grid-cols-3 gap-3">
-          <EquipmentCard icon={<Dumbbell size={20} color="#059669" />} label="Hantlar" />
-          <EquipmentCard icon={<Square size={20} color="#059669" />} label="Träningsmatta" />
-          <EquipmentCard icon={<Waves size={20} color="#059669" />} label="Gummiband" />
+          <EquipmentCard icon={<Dumbbell size={19} color="var(--accent-dark)" />} label="Hantlar" />
+          <EquipmentCard icon={<Square size={19} color="var(--accent-dark)" />} label="Träningsmatta" />
+          <EquipmentCard icon={<Waves size={19} color="var(--accent-dark)" />} label="Gummiband" />
         </div>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4">
-        <p className="text-sm font-semibold text-gray-800">Bra att veta innan du börjar</p>
-        <ul className="mt-2 space-y-1.5 text-sm text-gray-600">
+      <div className="mt-6 rounded-[22px] p-4" style={{ backgroundColor: 'var(--accent-light)' }}>
+        <p className="text-sm font-bold text-[color:var(--ink)]">Bra att veta innan du börjar</p>
+        <ul className="mt-2.5 space-y-1.5 text-sm text-[color:var(--body)]">
           <li>• Värm alltid upp någon minut innan passet.</li>
           <li>• Prioritera bra teknik framför fler repetitioner.</li>
           <li>• Vila en dag mellan passen så kroppen hinner återhämta sig.</li>
@@ -129,9 +144,14 @@ function estimateMinutes(exerciseCount: number) {
 
 function EquipmentCard({ icon, label }: { icon: ReactNode; label: string }) {
   return (
-    <div className="flex flex-col items-center gap-2 rounded-2xl bg-white p-3 text-center shadow-sm">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50">{icon}</div>
-      <span className="text-xs font-medium text-gray-600">{label}</span>
+    <div
+      className="flex flex-col items-center gap-2 rounded-[20px] bg-[color:var(--card)] p-3 text-center"
+      style={{ boxShadow: 'var(--shadow-sm)' }}
+    >
+      <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: 'var(--accent-light)' }}>
+        {icon}
+      </div>
+      <span className="text-xs font-medium text-[color:var(--body)]">{label}</span>
     </div>
   )
 }

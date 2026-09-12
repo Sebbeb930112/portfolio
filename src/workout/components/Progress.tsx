@@ -30,21 +30,21 @@ export default function Progress({ history, onClear }: Props) {
 
   return (
     <div className="mx-auto max-w-md px-5 pb-28 pt-8">
-      <h1 className="text-2xl font-bold text-gray-900">Framsteg</h1>
-      <p className="mt-1 text-sm text-gray-500">Här ser du din träningshistorik.</p>
+      <h1 className="text-[26px] font-bold text-[color:var(--ink)]">Framsteg</h1>
+      <p className="mt-1.5 text-sm text-[color:var(--body)]">Här ser du din träningshistorik.</p>
 
-      <div className="mt-5 rounded-2xl bg-white p-4 shadow-sm">
-        <p className="mb-3 text-sm font-semibold text-gray-800">Senaste 14 dagarna</p>
+      <div className="mt-5 rounded-[22px] bg-[color:var(--card)] p-4" style={{ boxShadow: 'var(--shadow-sm)' }}>
+        <p className="mb-3 text-sm font-bold text-[color:var(--ink)]">Senaste 14 dagarna</p>
         <div className="grid grid-cols-7 gap-2">
           {days.map((date) => {
             const dow = weekdayLetters[(new Date(date).getDay() + 6) % 7]
             const done = doneDates.has(date)
             return (
               <div key={date} className="flex flex-col items-center gap-1">
-                <span className="text-[10px] text-gray-300">{dow}</span>
+                <span className="text-[10px] text-[color:var(--muted)]">{dow}</span>
                 <div
                   className="h-7 w-7 rounded-lg"
-                  style={{ backgroundColor: done ? '#059669' : '#f3f4f6' }}
+                  style={{ backgroundColor: done ? 'var(--accent)' : 'var(--bg)' }}
                   title={date}
                 />
               </div>
@@ -58,9 +58,9 @@ export default function Progress({ history, onClear }: Props) {
           {['A', 'B', 'C'].map((id) => {
             const day = programDayById(id)
             return (
-              <div key={id} className="rounded-2xl bg-white p-3 text-center shadow-sm">
-                <p className="text-xl font-bold text-gray-900">{counts[id] ?? 0}</p>
-                <p className="text-xs text-gray-500">{day?.label}</p>
+              <div key={id} className="rounded-[20px] bg-[color:var(--card)] p-3 text-center" style={{ boxShadow: 'var(--shadow-sm)' }}>
+                <p className="text-xl font-bold text-[color:var(--ink)]">{counts[id] ?? 0}</p>
+                <p className="text-xs text-[color:var(--muted)]">{day?.label}</p>
               </div>
             )
           })}
@@ -68,9 +68,12 @@ export default function Progress({ history, onClear }: Props) {
       )}
 
       <div className="mt-6">
-        <p className="mb-2 text-sm font-semibold text-gray-800">Historik</p>
+        <p className="mb-2 text-sm font-bold text-[color:var(--ink)]">Historik</p>
         {sorted.length === 0 ? (
-          <p className="rounded-2xl bg-white p-4 text-sm text-gray-400 shadow-sm">
+          <p
+            className="rounded-[20px] bg-[color:var(--card)] p-4 text-sm text-[color:var(--muted)]"
+            style={{ boxShadow: 'var(--shadow-sm)' }}
+          >
             Inga genomförda pass ännu – kör igång från Hem-fliken!
           </p>
         ) : (
@@ -79,12 +82,16 @@ export default function Progress({ history, onClear }: Props) {
               const day = programDayById(h.dayId)
               const date = new Date(h.date)
               return (
-                <div key={i} className="flex items-center justify-between rounded-2xl bg-white p-3.5 shadow-sm">
+                <div
+                  key={i}
+                  className="flex items-center justify-between rounded-[20px] bg-[color:var(--card)] p-3.5"
+                  style={{ boxShadow: 'var(--shadow-sm)' }}
+                >
                   <div>
-                    <p className="text-sm font-semibold text-gray-800">{day?.label ?? h.dayId}</p>
-                    <p className="text-xs text-gray-400">{day?.focus}</p>
+                    <p className="text-sm font-bold text-[color:var(--ink)]">{day?.label ?? h.dayId}</p>
+                    <p className="text-xs text-[color:var(--muted)]">{day?.focus}</p>
                   </div>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-[color:var(--muted)]">
                     {date.toLocaleDateString('sv-SE', { day: 'numeric', month: 'short' })}
                   </span>
                 </div>
@@ -97,7 +104,8 @@ export default function Progress({ history, onClear }: Props) {
       {sorted.length > 0 && (
         <button
           onClick={onClear}
-          className="mt-6 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border-none bg-white py-2.5 text-xs font-medium text-gray-400 shadow-sm"
+          className="mt-6 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border-none bg-[color:var(--card)] py-2.5 text-xs font-medium text-[color:var(--muted)]"
+          style={{ boxShadow: 'var(--shadow-sm)' }}
         >
           <Trash2 size={14} /> Rensa historik
         </button>

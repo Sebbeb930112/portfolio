@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './workout.css'
 import BottomNav from './components/BottomNav'
 import Home from './components/Home'
 import ExerciseLibrary from './components/ExerciseLibrary'
@@ -25,7 +26,7 @@ export default function WorkoutApp() {
 
   if (activeSessionDayId) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: '#f4f6f5' }}>
+      <div className="workout">
         <Session
           dayId={activeSessionDayId}
           onExit={() => setActiveSessionDayId(null)}
@@ -36,7 +37,7 @@ export default function WorkoutApp() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f4f6f5', fontFamily: "'Montserrat', sans-serif" }}>
+    <div className="workout">
       {tab === 'home' && (
         <Home history={history} onStartDay={setActiveSessionDayId} onGoToProgram={() => setTab('program')} />
       )}

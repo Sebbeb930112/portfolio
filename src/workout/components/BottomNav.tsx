@@ -16,22 +16,29 @@ const tabs: { id: WorkoutTab; label: string; icon: typeof Home }[] = [
 export default function BottomNav({ active, onChange }: Props) {
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-black/5 bg-white/95 backdrop-blur-sm"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      className="fixed bottom-0 left-0 right-0 z-40 border-t"
+      style={{
+        backgroundColor: 'rgba(255,255,255,0.9)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderColor: 'var(--border)',
+        paddingBottom: 'env(safe-area-inset-bottom)',
+      }}
     >
-      <div className="mx-auto flex max-w-md items-stretch justify-around">
+      <div className="mx-auto flex max-w-md items-stretch justify-around px-2 py-1.5">
         {tabs.map(({ id, label, icon: Icon }) => {
           const isActive = active === id
           return (
             <button
               key={id}
               onClick={() => onChange(id)}
-              className="flex flex-1 cursor-pointer flex-col items-center gap-1 border-none bg-transparent py-2.5"
+              className="flex flex-1 cursor-pointer flex-col items-center gap-1 rounded-2xl border-none bg-transparent py-2 transition-colors"
+              style={isActive ? { backgroundColor: 'var(--accent-light)' } : undefined}
             >
-              <Icon size={22} strokeWidth={isActive ? 2.5 : 2} color={isActive ? '#059669' : '#9ca3af'} />
+              <Icon size={20} strokeWidth={isActive ? 2.4 : 2} color={isActive ? 'var(--accent-dark)' : 'var(--muted)'} />
               <span
-                className="text-[11px] font-medium"
-                style={{ color: isActive ? '#059669' : '#9ca3af' }}
+                className="text-[10.5px] font-semibold"
+                style={{ color: isActive ? 'var(--accent-dark)' : 'var(--muted)' }}
               >
                 {label}
               </span>
